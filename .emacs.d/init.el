@@ -1,13 +1,16 @@
+; Package Support
 (add-to-list 'load-path "~/.emacs.d/packages/")
-(add-to-list 'load-path "~/.dotfiles/solarized/emacs")
-
 (require 'package) (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")) (package-initialize)
 
+; Solarized color theme
+(add-to-list 'load-path "~/.dotfiles/solarized/emacs")
 (require 'color-theme-solarized)
+
 (eval-after-load "color-theme"
   '(progn
      (color-theme-solarized-light)))
 
+; Slime extension for sending s-expr to REPL
 (defun slime-send-dwim (arg)
   "Send the appropriate forms to CL to be evaluated."
   (interactive "P")
@@ -61,4 +64,7 @@
 
 (add-hook 'slime-connected-hook (lambda ()
   (define-key slime-mode-map (kbd "C-c s") 'slime-send-dwim)))
+
+; JSON mode for formatting JSON (C-c C-f)
+(load "~/.emacs.d/json-mode.el")
 
