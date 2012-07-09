@@ -1,13 +1,10 @@
 ; Package Support
 (add-to-list 'load-path "~/.emacs.d/packages/")
 (require 'package) (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")) (package-initialize)
-<<<<<<< HEAD
 
-; Solarized color theme
-(add-to-list 'load-path "~/.dotfiles/solarized/emacs")
-=======
 (require 'groovy-mode)
->>>>>>> Added groovy mode
+
+(add-to-list 'load-path "~/.dotfiles/solarized/emacs")
 (require 'color-theme-solarized)
 
 (eval-after-load "color-theme"
