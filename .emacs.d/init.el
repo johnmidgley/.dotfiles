@@ -9,7 +9,7 @@
 
 (eval-after-load "color-theme"
   '(progn
-     (color-theme-solarized-light)))
+     (color-theme-solarized-dark)))
 
 ; Slime extension for sending s-expr to REPL
 (defun slime-send-dwim (arg)
