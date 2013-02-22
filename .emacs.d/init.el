@@ -1,8 +1,13 @@
 ; Package Support
 (add-to-list 'load-path "~/.emacs.d/packages/")
-(require 'package) (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")) (package-initialize)
+(require 'package)
+(add-to-list 'package-archives 
+	     '("marmalade" . "http://marmalade-repo.org/packages/")) 
+(package-initialize)
 
-(require 'groovy-mode)
+(when (not (package-installed-p 'nrepl))
+  (package-install 'nrepl))
+; (require 'groovy-mode)
 
 (add-to-list 'load-path "~/.dotfiles/solarized/emacs")
 (require 'color-theme-solarized)
