@@ -1,13 +1,27 @@
+; Note - to completely unisntall Aquamacs, so as to start fresh, do the following:
+; rm -rf /Applications/Aquamacs.app/
+; rm -rf ~/Library/Preferences/Aquamacs\ Emacs/
+; rm -rf ~/Library/Application\ Support/Aquamacs\ Emacs/
+
 ; Package Support
+
+; Packages to auto-install
+(setq package-list '(clojure-mode nrepl))
+
 (add-to-list 'load-path "~/.emacs.d/packages/")
 (require 'package)
 (add-to-list 'package-archives 
 	     '("marmalade" . "http://marmalade-repo.org/packages/")) 
 (package-initialize)
 
-(when (not (package-installed-p 'nrepl))
-  (package-install 'nrepl))
-; (require 'groovy-mode)
+; fetch the list of packages available 
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+; install any missing packages
+(dolist (package package-list)
+  (when (not (package-installed-p package))
+    (package-install package)))
 
 (add-to-list 'load-path "~/.dotfiles/solarized/emacs")
 (require 'color-theme-solarized)
@@ -71,6 +85,4 @@
 (add-hook 'slime-connected-hook (lambda ()
   (define-key slime-mode-map (kbd "C-c s") 'slime-send-dwim)))
 
-; JSON mode for formatting JSON (C-c C-f)
-(load "~/.emacs.d/json-mode.el")
 
