@@ -40,7 +40,7 @@
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook 'paredit-mode) ; http://mumble.net/~campbell/emacs/paredit.html, http://emacswiki.org/emacs/PareditCheatsheet
 
-;; nREPL configuration 
+;; nREPL configuration (https://github.com/kingtim/nrepl.el)
 ; Enalbe eldoc for clojure buffers
 (add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 
