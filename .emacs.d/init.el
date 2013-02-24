@@ -1,12 +1,12 @@
-; Note - to completely unisntall Aquamacs, so as to start fresh, do the following:
+;; Note - to completely unisntall Aquamacs, so as to start fresh, do the following:
 ; rm -rf /Applications/Aquamacs.app/
 ; rm -rf ~/Library/Preferences/Aquamacs\ Emacs/
 ; rm -rf ~/Library/Application\ Support/Aquamacs\ Emacs/
 
-; Package Support
+;; Package Support
 
 ; Packages to auto-install
-(setq package-list '(clojure-mode nrepl))
+(setq package-list '(paredit clojure-mode nrepl))
 
 (add-to-list 'load-path "~/.emacs.d/packages/")
 (require 'package)
@@ -29,6 +29,38 @@
 (eval-after-load "color-theme"
   '(progn
      (color-theme-solarized-dark)))
+
+(add-to-list 'load-path "~/.emacs.d/elisp/")
+
+; http://www.emacswiki.org/emacs/RainbowDelimiters
+; To compile: M-x byte-compile-file ~/.emacs.d/elisp/rainbow-delimiters.el
+(require 'rainbow-delimiters)
+
+; Clojure Configuration
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook 'paredit-mode) ; http://mumble.net/~campbell/emacs/paredit.html, http://emacswiki.org/emacs/PareditCheatsheet
+
+;; nREPL configuration 
+; Enalbe eldoc for clojure buffers
+(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
+
+; Hide *nrepl-connection* and *nrepl-server* in some buffers, like C-x b (pressing SPC will show, if needed)
+(setq nrepl-hide-special-buffers t)
+
+; Stop the error buffer from popping up while working in buffers other than the REPL
+(setq nrepl-popup-stacktraces nil)
+
+;Enable error buffer popping also in the REPL
+(setq nrepl-popup-stacktraces-in-repl t)
+
+;Enable CamelCase support for editing commands(like forward-word, backward-word, etc) in nREPL, which can be quite useful when dealing with Java class and method names. 
+(add-hook 'nrepl-mode-hook 'subword-mode)
+
+; Turn on paredit in REPL
+(add-hook 'nrepl-mode-hook 'paredit-mode)
+
+; Turn on rainbow delimiters
+(add-hook 'nrepl-mode-hook 'rainbow-delimiters-mode)
 
 ; Slime extension for sending s-expr to REPL
 (defun slime-send-dwim (arg)
