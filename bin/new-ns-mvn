@@ -1,0 +1,41 @@
+#!/bin/bash
+# Yes, this should be a lein plugin
+# new-ns-mvn com.foo.core, creates:
+#    src/main/clojure/com/foo/core.clj
+#    src/test/clojure/com/foo/core_test.clj
+# new-ns-mvn com.foo.core clj, creates:
+#    src/main/clj/com/foo/core.clj
+#    src/test/clj/com/foo/core_test.clj
+# with appropriate contents
+
+NS=$1
+VALID_NS=${NS//-/_}
+
+TEST_NS=`echo $NS | sed 's/\(.*\)\.\([^.]*\)$/\1.\2-test/'`
+VALID_TEST_NS=${TEST_NS//-/_}
+
+LANG_DIR=${2:-clojure}
+
+SRC_FILE=${VALID_NS//./\/}
+SRC_FILE="src/main/${LANG_DIR}/${SRC_FILE}.clj"
+SRC_DIR=$(dirname $SRC_FILE)
+SRC_CONTENT="(ns $NS)\n\n(def ^:private -ns- *ns*)\n(set! *warn-on-reflection* true)"
+
+TEST_FILE=${VALID_TEST_NS//./\/}
+TEST_FILE="src/test/${LANG_DIR}/${TEST_FILE}.clj"
+TEST_DIR=$(dirname $TEST_FILE)
+NS_ALIAS=${NS##*.}
+TEST_CONTENT="(ns $TEST_NS\n  (:use $NS)\n  (:require [clojure.test :refer [deftest testing is]]))\n"
+
+echo "$SRC_FILE"
+mkdir -p $SRC_DIR
+echo -e $SRC_CONTENT > $SRC_FILE
+
+echo "$TEST_FILE"
+mkdir -p $TEST_DIR
+
+IFS='%'
+echo -e $TEST_CONTENT > $TEST_FILE
+unset IFS
+
+# vim:ft=sh
