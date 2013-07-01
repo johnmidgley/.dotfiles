@@ -1,0 +1,40 @@
+#!/bin/bash
+# Yes, this should be a lein plugin
+
+NS=$1
+VALID_NS=${NS//-/_}
+
+TEST_NS=`echo $NS | sed 's/^\([^.]*\)/\1.test/'`
+VALID_TEST_NS=${TEST_NS//-/_}
+
+SRC_FILE=${VALID_NS//./\/}
+SRC_FILE="src/${SRC_FILE}.clj"
+SRC_DIR=$(dirname $SRC_FILE)
+SRC_CONTENT="(ns $NS)\n\n(def ^:private -ns- *ns*)"
+
+TEST_FILE=${VALID_TEST_NS//./\/}
+TEST_FILE="test/${TEST_FILE}.clj"
+TEST_DIR=$(dirname $TEST_FILE)
+NS_ALIAS=${NS##*.}
+TEST_CONTENT="(ns $TEST_NS\n  (:require [$NS :as $NS_ALIAS]\n            [clojure.test :refer [deftest testing is]]))\n\n#_(clojure.test/run-tests)\n"
+
+if [ -f $SRC_FILE ]; then
+  echo "$SRC_FILE already exists"
+  exit 1
+fi
+
+if [ -f $TEST_FILE ]; then
+  echo "$TEST_FILE already exists"
+  exit 1
+fi
+
+mkdir -p $SRC_DIR
+echo -e $SRC_CONTENT > $SRC_FILE
+
+mkdir -p $TEST_DIR
+
+IFS='%'
+echo -e $TEST_CONTENT > $TEST_FILE
+unset IFS
+
+# vim:ft=sh
