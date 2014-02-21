@@ -1,6 +1,6 @@
 ln -s ~/.dotfiles/config.fish ~/.config/fish/config.fish
 ln -s ~/.dotfiles/.emacs.d/ ~/.emacs.d
-ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 ln -s ~/.dotfiles/.lein ~/.lein
 ln -s ~/.dotfiles/bin/lein-exec ~/bin/lein-exec
 ln -s ~/.dotfiles/bin/lein-exec-p ~/bin/lein-exec-p
