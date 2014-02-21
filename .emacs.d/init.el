@@ -36,6 +36,9 @@
 ; To compile: M-x byte-compile-file ~/.emacs.d/elisp/rainbow-delimiters.el
 (require 'rainbow-delimiters)
 
+;(global-linum-mode 1)
+;(require 'linum-off)
+
 ; Clojure Configuration
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'clojure-mode-hook 'paredit-mode) ; http://mumble.net/~campbell/emacs/paredit.html, http://emacswiki.org/emacs/PareditCheatsheet
