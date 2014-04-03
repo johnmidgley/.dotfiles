@@ -1,6 +1,6 @@
 .Trash/
 /Downloads/
-Google\ Drive/
+/Google\ Drive/*
 Library/
 Pictures/iPhoto Library/iPod Photo Cache/
 Previous\ iTunes\ Libraries/
