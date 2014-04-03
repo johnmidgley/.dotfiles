@@ -4,3 +4,4 @@ ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/sub
 ln -s ~/.dotfiles/.lein ~/.lein
 ln -s ~/.dotfiles/bin/lein-exec ~/bin/lein-exec
 ln -s ~/.dotfiles/bin/lein-exec-p ~/bin/lein-exec-p
+ln -s ~/.dotfiles/Preferences.sublime-settings Preferences.sublime-settings ~/Library/Application Support/Sublime Text 2/Packages/UserPreferences.sublime-settings
