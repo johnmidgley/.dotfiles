@@ -1,0 +1,52 @@
+#!/bin/bash
+
+type=$1
+name=$2
+desc=$3
+
+if [ "$type" = "" ]; then
+{
+	echo "Please provide the job type"
+	exit 1
+} fi
+
+if [ "$name" = "" ]; then
+{
+        echo "Please provide the script name"
+        exit 1
+} fi
+
+
+time=$(date +%Y%m%d_%H%M%S)
+
+echo "Running $name $time"
+
+files=""
+
+for file in $(ls)
+do
+	echo "Upload to s3: $file"
+
+	s3file="s3://netflix-dataoven-prod-users/$USER/jobs/${time}_${name}_$desc/$file"
+
+	echo "$s3file"
+
+	if [ "$files" = "" ]; then
+		files="${s3file}"
+	else
+		files="${files},${s3file}"
+	fi
+
+	command="export JAVA_HOME=/usr/lib/jvm/java-6-sun; /home/hadoop/bin/hadoop fs -put - $s3file"
+
+	ssh dataoven $command < $file
+done
+
+request="{\"jobInfo\":{\"pigVersion\":\"0.11\",\"jobName\":\"$name ($desc) $time\",\"userName\":\"$USER\",\"groupName\":\"social\",\"userAgent\":\"laptop\",\"jobType\":\"$type\",\"configuration\":\"PROD\",\"schedule\":\"ADHOC\",\"cmdArgs\":\"-v -param dateint=$(date +%Y%m%d) -param time=$time -param env=s3n://netflix-dataoven-prod-users/$USER -param out=s3n://netflix-dataoven-prod-users/$USER/out/$name/$time -param aegisthus=s3://nflx.dse.test.datadrop/aegisthus/prod/full/us-east-1 -param jars=s3n://netflix-dataoven-prod/genie/jars -f $name\",\"fileDependencies\":\"$files\"}}"
+
+server=$(curl -w "%{redirect_url}" http://discovery.cloud.netflix.net:7001/discovery/resolver/cluster/genie/)
+
+curl -L -d "$request" -H "Accept: application/json" -H "Content-Type: application/json" $server/genie/v0/jobs
+
+echo -e "\nDone"
+

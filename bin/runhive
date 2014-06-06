@@ -1,0 +1,3 @@
+#!/bin/bash
+rungenie HIVE $1 $2
+
