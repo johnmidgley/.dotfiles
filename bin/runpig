@@ -1,0 +1,2 @@
+#!/bin/bash
+rungenie PIG $1 $2
