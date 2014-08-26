@@ -54,3 +54,11 @@
 ;; JM
 (setq ring-bell-function 'ignore)
 (set-face-attribute 'default nil :height 150)
+
+;; Cider config
+(setq cider-popup-stacktraces nil)
+(setq cider-popup-on-error nil)
+
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+

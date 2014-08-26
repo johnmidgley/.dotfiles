@@ -13,4 +13,6 @@
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+(setq cider-show-error-buffer nil)
+
 
