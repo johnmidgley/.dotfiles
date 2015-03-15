@@ -7,3 +7,5 @@
 /.emacs.d/places
 
 /bin/subl
+
+.DS_Store
