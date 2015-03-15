@@ -1,6 +1,7 @@
-set PATH $PATH ~/bin
+set PATH $PATH ~/bin ~/dev/clojurescript/bin .
 setenv EDITOR "subl -w"
-setenv JAVA_HOME /System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+setenv JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
+setenv CLOJURESCRIPT_HOME ~/dev/clojurescript/
 alias cdst "cd ~/dev/groovy-social-tools"
 alias aquamacs /Applications/Aquamacs.app/Contents/MacOS/Aquamacs
 alias emacs /Applications/Emacs.app/Contents/MacOS/Emacs
