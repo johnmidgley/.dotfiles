@@ -29,10 +29,11 @@ ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/sub
 
 ## Fish
 brew install fish
+fish # Run to create ~/.config/fish
 ln -s ~/.dotfiles/config.fish ~/.config/fish/config.fish
 
 ## Emacs
-brew install --cocoa --srgb emacs
+brew install --with-cocoa --srgb emacs
 ln -s ~/.dotfiles/.emacs.d/ ~/.emacs.d
 
 ## Clojure 
