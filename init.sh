@@ -41,8 +41,6 @@ ln -s ~/.dotfiles/.emacs.d/ ~/.emacs.d
 brew install leiningen
 brew install rlwrap
 ln -s ~/.dotfiles/.lein ~/.lein
-ln -s ~/.dotfiles/bin/lein-exec ~/bin/lein-exec
-ln -s ~/.dotfiles/bin/lein-exec-p ~/bin/lein-exec-p
 
 ## Misc
 brew install groovy
