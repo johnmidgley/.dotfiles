@@ -4,7 +4,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 ## Git
 git config --global user.name "John Midgley"
 git config --global user.email john.midgley@gmail.com
-git config --global core.editor "subl -w"
+git config --global core.editor "emacs"
 
 ## Setup Keys (https://help.github	.com/articles/generating-ssh-keys)
 ssh-keygen -t rsa -C "john.midgley@gmail.com"
