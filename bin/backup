@@ -30,5 +30,3 @@ backupPhotos() {
 syncHome $primary
 syncHome $secondary
 backupPhotos $primary $secondary
-
-cp -p ~/Documents/Misc/Blank\ CD.dmg ~/Google\ Drive/Misc/xyz.dmg
