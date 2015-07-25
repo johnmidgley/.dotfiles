@@ -24,6 +24,7 @@ ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/sub
 # Install package manager https://sublime.wbond.net/installation
 # - BracketHighlighter
 # - ClojureDocSearch
+# - Enhance Clojure
 # - Indent XML
 # - lispindent
 # - paredit
