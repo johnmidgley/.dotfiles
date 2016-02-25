@@ -14,21 +14,6 @@ syncHome() {
 	fi
 }
 
-backupPhotos() {
-	local source=$1
-	local target=$2
-
-	if [ -e $source ] && [ -e $target ]
-	then
-		echo "Backing up photos ..."
-		rsync -rlptP --delete-excluded --delete-before $source/iPhoto $target/Backups
-	else
-		echo "Source and target not present. Skipping photo backup."
-	fi
-}
-
 syncHome $primary
 syncHome $secondary
-backupPhotos $primary $secondary
 
-cp -p ~/Documents/Misc/Blank\ CD.dmg ~/Google\ Drive/Misc/xyz.dmg

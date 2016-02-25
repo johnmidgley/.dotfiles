@@ -1,10 +1,11 @@
 ## Brew
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 ## Git
 git config --global user.name "John Midgley"
 git config --global user.email john.midgley@gmail.com
-git config --global core.editor "subl -w"
+git config --global core.editor "emacs"
+git config --global push.default simple
 
 ## Setup Keys (https://help.github	.com/articles/generating-ssh-keys)
 ssh-keygen -t rsa -C "john.midgley@gmail.com"
@@ -23,16 +24,18 @@ ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/sub
 # Install package manager https://sublime.wbond.net/installation
 # - BracketHighlighter
 # - ClojureDocSearch
+# - Enhance Clojure
 # - Indent XML
 # - lispindent
 # - paredit
 
 ## Fish
 brew install fish
+fish # Run to create ~/.config/fish
 ln -s ~/.dotfiles/config.fish ~/.config/fish/config.fish
 
 ## Emacs
-brew install --cocoa --srgb emacs
+brew install --with-cocoa --srgb emacs
 ln -s ~/.dotfiles/.emacs.d/ ~/.emacs.d
 brew linkapps emacs
 
@@ -40,9 +43,3 @@ brew linkapps emacs
 brew install leiningen
 brew install rlwrap
 ln -s ~/.dotfiles/.lein ~/.lein
-ln -s ~/.dotfiles/bin/lein-exec ~/bin/lein-exec
-ln -s ~/.dotfiles/bin/lein-exec-p ~/bin/lein-exec-p
-
-## Misc
-brew install groovy
-
