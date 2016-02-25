@@ -34,6 +34,7 @@ ln -s ~/.dotfiles/config.fish ~/.config/fish/config.fish
 ## Emacs
 brew install --cocoa --srgb emacs
 ln -s ~/.dotfiles/.emacs.d/ ~/.emacs.d
+brew linkapps emacs
 
 ## Clojure 
 brew install leiningen
