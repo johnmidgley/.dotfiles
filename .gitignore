@@ -1,9 +1,10 @@
 /.lein/repl-history
 /.lein/self-installs/leiningen-2.0.0-standalone.jar
+
 /.emacs.d/.smex-items
-
+/.emacs.d/ido.last
+/.emacs.d/recentf
 /.emacs.d/cider-history
-
 /.emacs.d/places
 
 /bin/subl
