@@ -18,10 +18,32 @@ git clone git@github.com:johnmidgley/.dotfiles.git ~/.dotfiles
 ## Link to bin
 ln -s ~/.dotfiles/bin ~
 
+## Fish
+brew install fish
+fish # Run to create ~/.config/fish
+ln -s ~/.dotfiles/config.fish ~/.config/fish/config.fish
+
+## iTerm
+# Install from https://iterm2.com/
+# Point to ~/.dotfiles/iterm in preferences 
+
+## Emacs
+# https://github.com/daviderestivo/homebrew-emacs-head
+brew tap daviderestivo/emacs-head
+brew install emacs-head --with-cocoa
+# OPTIONAL: brew unttap daviderestivo/emacs-head
+ln -s ~/.dotfiles/.emacs.d/ ~/.emacs.d
+# brew linkapps emacs
+# brew services start daviderestivo/emacs-head/emacs-head
+## Clojure 
+brew install leiningen
+brew install rlwrap
+ln -s ~/.dotfiles/.lein ~/.lein
+
 ## Sublime
 # Install from http://www.sublimetext.com/3
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
-# Install package manager https://sublime.wbond.net/installation
+# Install package manager from "Tools" menu
 # - BracketHighlighter
 # - ClojureDocSearch
 # - Enhance Clojure
@@ -29,17 +51,5 @@ ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/sub
 # - lispindent
 # - paredit
 
-## Fish
-brew install fish
-fish # Run to create ~/.config/fish
-ln -s ~/.dotfiles/config.fish ~/.config/fish/config.fish
 
-## Emacs
-brew install --with-cocoa --srgb emacs
-ln -s ~/.dotfiles/.emacs.d/ ~/.emacs.d
-brew linkapps emacs
 
-## Clojure 
-brew install leiningen
-brew install rlwrap
-ln -s ~/.dotfiles/.lein ~/.lein
