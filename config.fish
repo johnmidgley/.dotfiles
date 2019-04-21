@@ -1,4 +1,4 @@
-set PATH $PATH ~/bin ~/dev/clojurescript/bin .
+set PATH ~/bin $PATH ~/dev/clojurescript/bin .
 setenv EDITOR "subl -w"
 setenv JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home
 setenv CLOJURESCRIPT_HOME ~/dev/clojurescript/
