@@ -17,6 +17,7 @@ git clone git@github.com:johnmidgley/.dotfiles.git ~/.dotfiles
 
 ## Link to bin
 ln -s ~/.dotfiles/bin ~
+# cp tmpp from Google Drive/install
 
 ## Fish
 brew install fish
@@ -28,13 +29,11 @@ ln -s ~/.dotfiles/config.fish ~/.config/fish/config.fish
 # Point to ~/.dotfiles/iterm in preferences 
 
 ## Emacs
-# https://github.com/daviderestivo/homebrew-emacs-head
-brew tap daviderestivo/emacs-head
-brew install emacs-head --with-cocoa
-# OPTIONAL: brew unttap daviderestivo/emacs-head
+# Best to just follow: https://github.com/flyingmachine/emacs-for-clojure/
+# Most recent emacs can be Installed from Google Drive/install/Emacs-26.2-universal.dmg
+# Base .emacs.d  in Google Drive/install/emacs-for-clojure-book1.zip
 ln -s ~/.dotfiles/.emacs.d/ ~/.emacs.d
-# brew linkapps emacs
-# brew services start daviderestivo/emacs-head/emacs-head
+
 ## Clojure 
 brew install leiningen
 brew install rlwrap
