@@ -2,6 +2,7 @@
 
 primary="/Volumes/MiniMe"
 secondary="/Volumes/Secondary"
+critical="/Volumes/MicroMe"
 
 syncHome() {
 	local target=$1
@@ -10,10 +11,17 @@ syncHome() {
 		echo "Syncing home to $target ..."
 		rsync -rlptP --delete-excluded --delete-before --exclude-from ~/.dotfiles/backup-excludes.txt ~ $target/Backups
 	else
-		echo "Target not found: $target"
+		echo -e "\033[33mTarget not found: $target\033[m"
 	fi
 }
 
 syncHome $primary
 syncHome $secondary
 
+if [ -e $critical ]
+then
+  rsync -pPt ~/Google\ Drive/Documents/Misc/Untitled.dmg /Volumes/MicroMe/Backup
+  rsync -pPt ~/Google\ Drive/Documents/Misc/Blank\ CD.dmg /Volumes/MicroMe/Backup
+else
+  echo -e "\033[31m*** Critical Path NOT Backed Up ***\033[m"
+fi
