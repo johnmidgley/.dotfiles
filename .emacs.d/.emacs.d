@@ -1,1 +1,1 @@
-/Users/jmidgley/.dotfiles/.emacs.d/
+.emacs.d

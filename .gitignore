@@ -8,5 +8,6 @@
 /.emacs.d/places
 
 /bin/subl
+/bin/tmpp
 
 .DS_Store

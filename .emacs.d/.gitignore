@@ -1,2 +1,18 @@
+<<<<<<< HEAD
 swank
 auto-save-list/
+=======
+.smex-items
+*~$
+places
+.recentf
+ido.last
+cider-history
+projectile-bookmarks.eld
+projectile.cache
+auto-save-list
+backups
+melpa-stable
+archive-contents
+*.elc
+>>>>>>> 4b13d3d235e3b634f249f16a39718e7260d5a1e5
