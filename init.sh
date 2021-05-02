@@ -31,6 +31,7 @@ ln -s ~/.dotfiles/config.fish ~/.config/fish/config.fish
 ## Emacs
 # Best to just follow: https://github.com/flyingmachine/emacs-for-clojure/
 # Most recent emacs can be Installed from Google Drive/install/Emacs-26.2-universal.dmg
+open Google\ Drive/install/Emacs-26.2-universal.dmg
 # Base .emacs.d  in Google Drive/install/emacs-for-clojure-book1.zip
 ln -s ~/.dotfiles/.emacs.d/ ~/.emacs.d
 
