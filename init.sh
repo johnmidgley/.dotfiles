@@ -37,8 +37,10 @@ ln -s ~/.dotfiles/.emacs.d/ ~/.emacs.d
 
 ## Clojure 
 brew install leiningen
+# Removed old profiles, so no longer need to link .lein. Re-add if any leiningen customation as added.
+# ln -s ~/.dotfiles/.lein ~/.lein
 brew install rlwrap
-ln -s ~/.dotfiles/.lein ~/.lein
+
 
 ## Sublime
 # Install from http://www.sublimetext.com/3
