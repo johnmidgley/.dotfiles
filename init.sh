@@ -55,6 +55,7 @@ ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/sub
 
 ## Misc
 brew install tree
+brew install npm # For figwheel (& javascript) development
 
 
 
